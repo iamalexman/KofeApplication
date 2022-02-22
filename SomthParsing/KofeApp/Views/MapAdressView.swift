@@ -23,7 +23,7 @@ struct MapAdressView: View {
             }
             Spacer()
         }
-        Text("Часы работы: 09.00 - 22.00")
+        Text("Часы работы: 08.00 - 22.00")
             .font(.title2)
             .fontWeight(.medium)
             .multilineTextAlignment(.leading)

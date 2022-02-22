@@ -22,7 +22,8 @@ struct RegistrationView: View {
                 .frame(width: 200, height: 200)
                 .scaleEffect()
                 .shadow(color: .black, radius: 20, x: 5, y: 5)
-                .padding(.bottom, 30)
+//                .padding(.bottom, 30)
+                .padding(.top, 40)
             
             Text("Привет, кофеман!")
                 .font(.largeTitle)
