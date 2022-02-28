@@ -9,31 +9,38 @@ import SwiftUI
 
 struct RoundView: View {
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(.black)
-                .opacity(0.2)
-                .frame(width: 150, height: 150, alignment: .center)
-                .onTapGesture {
-                    withAnimation()  {
-                        //add some animation when click
-                    }
-                }
-            Text("Категория")
-                .fontWeight(.bold)
-                .font(.title)
-                .foregroundColor(.white)
+//        NavigationLink (destination: ProductView(index: "Kofe")) {
+            ForEach(categories) {
+                _ in NavigationLink (destination: ProductView(index: "Kofe")){
+            ZStack {
+                Image("hotDrinks")
+                    .resizable()
+                    .frame(width: 150, height: 150, alignment: .center)
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(10)
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.black)
+                    .opacity(0.2)
+                    .frame(width: 150, height: 150, alignment: .center)
+                Text("Продукт")
+                    .fontWeight(.bold)
+                    .font(.title)
+                    .foregroundColor(.white)
+            }
         }
+            }
+            .navigationBarBackButtonHidden(false)
+//            .navigationBarHidden(true)
+            .navigationTitle("Назад")
     }
 }
 
 struct RowView: View {
     var body: some View {
-        HStack(spacing: 25) {
+        HStack(spacing: 20) {
             ForEach(0...1, id: \.self) { _ in
                 RoundView()
             }
-            .padding(2)
         }
     }
 }
@@ -43,10 +50,10 @@ struct MenuView: View {
         ScrollView {
             ForEach(0...5, id: \.self) { _ in
                 RowView()
-            }.listRowInsets(EdgeInsets())
+            }
+            .padding(.top, 50)
         }
         .ignoresSafeArea()
-        .padding(.top, 10)
     }
 }
 

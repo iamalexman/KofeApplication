@@ -7,10 +7,41 @@
 
 import SwiftUI
 
+
+struct NewRegView : View {
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("New person")
+                Spacer()
+            }.navigationBarTitle("")
+                .navigationBarHidden(true)
+        }
+    }
+}
+
+struct ForgotPass : View {
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("Forgot password")
+                NavigationLink (destination: RegistrationView()) {
+                    Text("Назад")
+                }
+            }
+            .navigationBarHidden(false)
+            .navigationBarTitle("Назад")
+        }
+    }
+}
+
 struct RegistrationView: View {
     @State var username = ""
     @State var password = ""
     @State var email = ""
+    @State var tag : Int? = nil
+    @State private var showDetails = false
+    @State private var forgotPass = false
     
     var accentColor = Color.black
     var grayBackground = Color.gray.opacity(0.2)
@@ -22,9 +53,7 @@ struct RegistrationView: View {
                 .frame(width: 200, height: 200)
                 .scaleEffect()
                 .shadow(color: .black, radius: 20, x: 5, y: 5)
-//                .padding(.bottom, 30)
                 .padding(.top, 40)
-            
             Text("Привет, кофеман!")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
@@ -55,10 +84,20 @@ struct RegistrationView: View {
                 HStack {
                     Spacer()
                     Button(action : {
-                    }) {Text("Зарегистрироваться")}
+                        self.showDetails.toggle()
+                    }) {
+                        Text("Зарегистрироваться")
+                    }.fullScreenCover(isPresented: $showDetails){
+                        ForgotPass()
+                    }
                     Spacer()
                     Button(action : {
-                    }) {Text("Забыл пароль?")}
+                        self.forgotPass.toggle()
+                    }) {
+                        Text("Забыл пароль?")
+                    }.fullScreenCover(isPresented: $forgotPass){
+                        ForgotPass()
+                    }
                     Spacer()
                 }
                 Spacer()
@@ -70,5 +109,6 @@ struct RegistrationView: View {
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
         RegistrationView()
+.previewInterfaceOrientation(.portraitUpsideDown)
     }
 }

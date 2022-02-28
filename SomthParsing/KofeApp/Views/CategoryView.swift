@@ -5,23 +5,17 @@
 //  Created by Alex Smith on 21.11.2021.
 //
 
+import UIKit
 import SwiftUI
 
-struct Categories: Identifiable {
-    var id = UUID()
-    var name = String()
-    var image = String()
-}
-
 struct CategoryView: View {
-    
-    let categories: [Categories] = [Categories(name: "Горячие напитки", image: "hotDrinks"), Categories(name: "Холодные напитки", image: "coldDrinks"), Categories(name: "Еда", image: "foods")]
-    
+
     var placeholder : String
     @State var text : String
     
     var body: some View {
-        VStack (spacing: 0) {
+        
+        VStack {
             HStack {
                 Image(systemName: "magnifyingglass").foregroundColor(.secondary)
                 TextField(placeholder, text: $text)
@@ -40,16 +34,32 @@ struct CategoryView: View {
             .cornerRadius(3.0)
             .padding()
             NavigationView {
-                List(categories) { categorie in
-                    NavigationLink(destination: MenuView()) {
-                        VStack(alignment: .leading) {
-                            Text(categorie.name)
-                                .font(.system(size: 15))
-                            Image(categorie.image)
-                                .resizable()
-                                .frame(height: 200)
-                                .aspectRatio(contentMode: .fit)
-                                .cornerRadius(10)
+                ScrollView {
+                    ForEach(categories) {
+                        categorie in NavigationLink (destination: MenuView()){
+                            ZStack {
+                                Image(categorie.image)
+                                    .resizable()
+                                    .frame(height: 200)
+                                    .aspectRatio(contentMode: .fit)
+                                    .cornerRadius(10)
+                                LinearGradient(colors: [.clear, .black], startPoint: .center, endPoint: .topLeading)
+                                    .cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+                                HStack {
+                                    VStack {
+                                        Text(categorie.name)
+                                            .font(.system(size: 35))
+                                            .foregroundColor(.white)
+                                            .fontWeight(.semibold)
+                                            .multilineTextAlignment(.leading)
+                                            .padding(.top, 5)
+                                            .padding(.leading, 10)
+                                        Spacer()
+                                    }
+                                    Spacer()
+                                }
+                            }
+                            .padding(.horizontal)
                         }
                     }
                 }

@@ -13,13 +13,16 @@ struct ProductView: View {
     Binding<PresentationMode>
     var index: String
     var body: some View {
-        NavigationView() {
-            Image("A\(index)")
+//        NavigationView() {
+            Image("coffeeGoods")
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                .ignoresSafeArea(.all)
-        }
+//                .ignoresSafeArea(.all)
+//        }
+        .ignoresSafeArea()
+//        .navigationTitle("Назад")
+//        .navigationBarHidden(true)
 //        VStack {
 //            HStack {
 //                Image("Kofe")
@@ -51,13 +54,14 @@ struct ProductView: View {
 //                .lineLimit(nil)
 //                .padding()
 //        }
-        .navigationBarItems(leading: Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }, label: {
-            Image("back").foregroundColor(Color.white)
-        }))
+//        .navigationBarItems(leading: Button(action: {
+//            self.presentationMode.wrappedValue.dismiss()
+//        }, label: {
+//            Image("back").foregroundColor(Color.white)
+//        }))
 //        Spacer()
     }
+    
 }
 
 
