@@ -13,55 +13,91 @@ struct ProductView: View {
     Binding<PresentationMode>
     var index: String
     var body: some View {
-//        NavigationView() {
-            Image("coffeeGoods")
+        ScrollView () {
+            ZStack{
+            Image("hotDrinks")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-//                .ignoresSafeArea(.all)
-//        }
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 400, height: 400, alignment: .trailing)
+                .clipped()
+                VStack{
+                Spacer()
+                HStack{
+                    Spacer()
+                    Text("ДОБАВКИ")
+                    .foregroundColor(.white)
+                    Button(action: {}) {
+                        Text("+")
+                            .font(.headline)
+                            .foregroundColor(.black)
+                            .padding()
+                            .frame(width: 50, height: 50)
+                            .background(.white)
+                            .cornerRadius(10.0)
+                        
+                    }
+                    .padding()
+                    }
+                }
+            }
+            HStack {
+                Text("КАПУЧИНО")
+                    .font(.headline)
+                Spacer()
+                HStack {
+                    Button(action: {}) {
+                        Text("S")
+                            .font(.headline)
+                            .foregroundColor(.black)
+                            .padding()
+                            .frame(width: 50, height: 50)
+                            .overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2))
+                            .cornerRadius(10.0)
+                    }
+                    Button(action: {}) {
+                        Text("M")
+                            .font(.headline)
+                            .foregroundColor(.black)
+                            .padding()
+                            .frame(width: 50, height: 50)
+                            .overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 2))
+                            .cornerRadius(10.0)
+                    }
+                    .cornerRadius(10.0)
+                    Button(action: {}) {
+                        Text("L")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(width: 50, height: 50)
+                            .background(.black)
+                            .cornerRadius(10.0)
+                    }
+                }
+            }
+            .padding()
+            Divider()
+            HStack{
+            Text("Капучино — самый известный кофейный напиток на основе эспрессо. В нём сохраняется баланс: чувствуется вкус эспрессо, но он не преобладает над вкусом молока. Это золотая середина между латте и флэт уайтом и хороший вариант для первого знакомства с кофе.")
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(6)
+                Spacer()
+            }
+            .padding()
+            Button(action: {}) {
+                Text("Добавить в корзину          160 руб.")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: 350, height: 50)
+                    .background(.black)
+                    .cornerRadius(10.0)
+                    .padding(.bottom)
+            }
+        }
         .ignoresSafeArea()
-//        .navigationTitle("Назад")
-//        .navigationBarHidden(true)
-//        VStack {
-//            HStack {
-//                Image("Kofe")
-//                    .resizable()
-//                    .frame(width: 200, height: 200)
-//                .ignoresSafeArea()
-//            }
-//            HStack {
-//                Text("Product")
-//                    .font(.headline)
-//                    .fontWeight(.bold)
-//                    .multilineTextAlignment(.center)
-//                    .frame(width: nil)
-//            }
-//            HStack {
-//                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-//                    Text("Buy")
-//                        .font(.headline)
-//                        .foregroundColor(.white)
-//                        .padding()
-//                        .frame(width: 70, height: 50)
-//                        .background(.black)
-//                        .cornerRadius(15.0)
-//                }
-//                Spacer()
-//                    .frame(width: 0.0, height: 0.0)
-//            }.padding()
-//            Text("ОПИСАНИЕ ОПИСАНИЕ ОПИСАНИЕ ОПИСАНИЕ ОПИСАНИЕ.")
-//                .lineLimit(nil)
-//                .padding()
-//        }
-//        .navigationBarItems(leading: Button(action: {
-//            self.presentationMode.wrappedValue.dismiss()
-//        }, label: {
-//            Image("back").foregroundColor(Color.white)
-//        }))
-//        Spacer()
     }
-    
 }
 
 

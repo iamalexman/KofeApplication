@@ -9,29 +9,25 @@ import SwiftUI
 
 struct RoundView: View {
     var body: some View {
-//        NavigationLink (destination: ProductView(index: "Kofe")) {
-            ForEach(categories) {
-                _ in NavigationLink (destination: ProductView(index: "Kofe")){
+        NavigationLink (destination: ProductView(index: "Kofe").navigationBarHidden(false)) {
             ZStack {
                 Image("hotDrinks")
                     .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 150, height: 150, alignment: .center)
-                    .aspectRatio(contentMode: .fit)
                     .cornerRadius(10)
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(.black)
                     .opacity(0.2)
                     .frame(width: 150, height: 150, alignment: .center)
-                Text("Продукт")
+                Text("ТОВАР")
                     .fontWeight(.bold)
                     .font(.title)
                     .foregroundColor(.white)
             }
         }
-            }
-            .navigationBarBackButtonHidden(false)
-//            .navigationBarHidden(true)
-            .navigationTitle("Назад")
+        .navigationBarHidden(true)
+        .navigationTitle("ГОРЯЧИЕ НАПИТКИ")
     }
 }
 
@@ -47,13 +43,15 @@ struct RowView: View {
 
 struct MenuView: View {
     var body: some View {
+        //        NavigationView {
+        //        SearchBar(placeholder: "Поиск", text: "")
+        //            .cornerRadius(3.0)
+        //            .padding()
         ScrollView {
             ForEach(0...5, id: \.self) { _ in
                 RowView()
             }
-            .padding(.top, 50)
         }
-        .ignoresSafeArea()
     }
 }
 

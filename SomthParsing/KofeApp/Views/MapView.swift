@@ -10,7 +10,8 @@ import MapKit
 
 struct MapView: View {
     
-    let adressesField = ["🔘 Березники, Карла Маркса, 48", "🔘 Усолье, Строгановская, 23"]
+    let adressesField = ["Березники, Карла Маркса, 48", "Усолье, Строгановская, 23"]
+    let timeField = ["Часы работы: 08.00 - 22.00", "Часы работы: 09.00 - 20.00"]
     
     var annotationItems: [MyAnnotationItem] = [
         MyAnnotationItem(coordinate: CLLocationCoordinate2D(latitude: 59.404729, longitude: 56.802921)),
@@ -35,10 +36,12 @@ struct MapView: View {
                             .padding(.bottom,10)
                         ScrollView {
                             VStack {
-                                MapAdressView(adressField: adressesField.first ?? "")
-                                MapAdressView(adressField: adressesField.last ?? "")
-                                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                                    Text("Посмотреть меню")
+                                MapAdressView(adressField: adressesField.first ?? "", timeField: timeField.first ?? "")
+                                Divider()
+                                MapAdressView(adressField: adressesField.last ?? "", timeField: timeField.last ?? "")
+                                Divider()
+                                Button(action: {}) {
+                                    Text("Подробнее")
                                         .font(.title2)
                                         .frame(width: 250, height: 60)
                                         .foregroundColor(.white)

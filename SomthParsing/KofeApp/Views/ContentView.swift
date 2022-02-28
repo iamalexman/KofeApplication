@@ -64,7 +64,6 @@ private struct DrawingConstants {
     static let fontSize: CGFloat = 32
 }
 
-
 struct TabBarIcon: View {
     
     @StateObject var viewRouter: ViewRouter

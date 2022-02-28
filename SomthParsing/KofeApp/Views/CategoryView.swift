@@ -9,34 +9,19 @@ import UIKit
 import SwiftUI
 
 struct CategoryView: View {
-
+    
     var placeholder : String
     @State var text : String
     
     var body: some View {
-        
-        VStack {
-            HStack {
-                Image(systemName: "magnifyingglass").foregroundColor(.secondary)
-                TextField(placeholder, text: $text)
-                if text != "" {
-                    Image(systemName: "xmark.circle.fill")
-                        .imageScale(.medium)
-                        .foregroundColor(Color(.gray))
-                        .padding(3)
-                        .onTapGesture {
-                            withAnimation {
-                                self.text = ""
-                            }
-                        }
-                }
-            }
-            .cornerRadius(3.0)
-            .padding()
-            NavigationView {
+        NavigationView {
+            VStack {
+                SearchBar(placeholder: "Поиск", text: "")
+                    .cornerRadius(3.0)
+                    .padding()
                 ScrollView {
                     ForEach(categories) {
-                        categorie in NavigationLink (destination: MenuView()){
+                        categorie in NavigationLink (destination: MenuView().navigationBarHidden(false)) {
                             ZStack {
                                 Image(categorie.image)
                                     .resizable()
@@ -63,9 +48,9 @@ struct CategoryView: View {
                         }
                     }
                 }
-                .navigationBarHidden(true)
-                .navigationTitle("Назад")
             }
+            .navigationBarHidden(true)
+            .navigationBarTitle("Назад", displayMode: .inline)
         }
     }
 }

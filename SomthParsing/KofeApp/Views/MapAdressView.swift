@@ -10,8 +10,11 @@ import SwiftUI
 struct MapAdressView: View {
     
     var adressField : String
+    var timeField : String
     var body: some View {
         HStack {
+            Text("📍")
+                .frame(height: 80)
             VStack {
                 HStack {
                     Text(adressField)
@@ -20,18 +23,17 @@ struct MapAdressView: View {
                         .multilineTextAlignment(.leading)
                         .padding(.minimum(1, 1))
                 }
+                Text(timeField)
+                    .font(.title2)
+                    .multilineTextAlignment(.leading)
             }
             Spacer()
         }
-        Text("Часы работы: 08.00 - 22.00")
-            .font(.title2)
-            .fontWeight(.medium)
-            .multilineTextAlignment(.leading)
     }
 }
 
 struct MapAdressView_Previews: PreviewProvider {
     static var previews: some View {
-        MapAdressView(adressField: "")
+        MapAdressView(adressField: "", timeField: "")
     }
 }
