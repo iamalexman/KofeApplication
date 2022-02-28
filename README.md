@@ -6,8 +6,7 @@ Now it is just a prototype, adding some logic soon...
 17.02 Added animated searchbar, pins on the mapView, minor fixes...
 
 
-![alt text](https://github.com/mankofeman/KofeApp/blob/main/SomthParsing/KofeApp/Resources/Screenshot%202022-02-18%20at%2002.53.00.png)
-![alt text](https://github.com/mankofeman/KofeApp/blob/main/SomthParsing/KofeApp/Resources/Screenshot%202022-02-23%20at%2001.50.16.png)
-![alt text](https://github.com/mankofeman/KofeApp/blob/main/SomthParsing/KofeApp/Resources/Screenshot%202022-02-18%20at%2002.53.23.png)
-![alt text](https://github.com/mankofeman/KofeApp/blob/main/SomthParsing/KofeApp/Resources/Screenshot%202022-02-18%20at%2002.53.38.png)
-![alt text](https://github.com/mankofeman/KofeApp/blob/main/SomthParsing/KofeApp/Resources/Screenshot%202022-02-18%20at%2002.53.54.png)
+![alt text](https://github.com/mankofeman/KofeApp/blob/main/SomthParsing/KofeApp/Preview%20Content/Preview%20Assets.xcassets/Screen1.png)
+![alt text](https://github.com/mankofeman/KofeApp/blob/main/SomthParsing/KofeApp/Preview%20Content/Preview%20Assets.xcassets/Screen2.png)
+![alt text](https://github.com/mankofeman/KofeApp/blob/main/SomthParsing/KofeApp/Preview%20Content/Preview%20Assets.xcassets/Screen3.png)
+![alt text](https://github.com/mankofeman/KofeApp/blob/main/SomthParsing/KofeApp/Preview%20Content/Preview%20Assets.xcassets/Screen4.png)
