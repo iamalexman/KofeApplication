@@ -25,7 +25,7 @@ struct ForgotPass : View {
         NavigationView {
             VStack {
                 Text("Forgot password")
-                NavigationLink (destination: RegistrationView()) {
+                NavigationLink(destination: RegistrationView()) {
                     Text("Назад")
                 }
             }
@@ -78,7 +78,7 @@ struct RegistrationView: View {
                         .padding()
                         .frame(width: 220, height: 60)
                         .background(accentColor)
-                        .cornerRadius(15.0)
+                        .cornerRadius(10.0)
                     
                 }.padding()
                 HStack {
@@ -87,7 +87,7 @@ struct RegistrationView: View {
                         self.showDetails.toggle()
                     }) {
                         Text("Зарегистрироваться")
-                    }.fullScreenCover(isPresented: $showDetails){
+                    }.sheet(isPresented: $showDetails){
                         ForgotPass()
                     }
                     Spacer()

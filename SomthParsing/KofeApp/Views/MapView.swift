@@ -46,12 +46,13 @@ struct MapView: View {
                                         .frame(width: 250, height: 60)
                                         .foregroundColor(.white)
                                         .background(.black)
-                                        .cornerRadius(15.0)
+                                        .cornerRadius(10.0)
                                         .padding(.top)
                                 }
                             }
                         }.font(Font.system(size: DrawingConstants.fontSize))
-                    }.padding()
+                    }
+                    .padding(.horizontal)
                 }
             }
         }

@@ -14,7 +14,7 @@ struct MapAdressView: View {
     var body: some View {
         HStack {
             Text("📍")
-                .frame(height: 80)
+                .frame(height: 70)
             VStack {
                 HStack {
                     Text(adressField)

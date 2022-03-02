@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @StateObject var viewRouter: ViewRouter
-    
-    @State var showPopUp = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -27,26 +24,15 @@ struct ContentView: View {
                         MapView()
                     }
                 case .cart:
-                    Spacer()
-                    ScrollView {
-                        Text("Корзина")
-                    }
+                    CartView()
                     Spacer()
                 }
                 ZStack {
                     HStack {
-//                        NavigationView {
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .menu, width: geometry.size.width/4, height: geometry.size.height/28, systemIconName: "list.bullet", tabName: "Меню")
-//                        }
-//                        NavigationView {
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .user, width: geometry.size.width/4, height: geometry.size.height/28, systemIconName: "person.crop.circle", tabName: "Профиль")
-//                        }
-//                        NavigationView {
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .map, width: geometry.size.width/4, height: geometry.size.height/28, systemIconName: "map", tabName: "Карта")
-                        //                        }
-//                        NavigationView {
                         TabBarIcon(viewRouter: viewRouter, assignedPage: .cart, width: geometry.size.width/4, height: geometry.size.height/28, systemIconName: "cart", tabName: "Корзина")
-//                        }
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height/8)
                 }
@@ -65,10 +51,8 @@ private struct DrawingConstants {
 }
 
 struct TabBarIcon: View {
-    
     @StateObject var viewRouter: ViewRouter
     let assignedPage: Page
-    
     let width, height: CGFloat
     let systemIconName, tabName: String
     
@@ -79,16 +63,18 @@ struct TabBarIcon: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: width, height: height)
-            Text(tabName)
-                .padding(.top, 10)
-                .font(.footnote)
+            if (viewRouter.currentPage == assignedPage) {
+                Text(tabName)
+                    .padding(.top, 10)
+                    .font(.footnote)
+            }
             Spacer()
         }
+        .animation(.easeInOut, value: viewRouter.currentPage)
         .padding(.horizontal, -4)
         .onTapGesture {
             viewRouter.currentPage = assignedPage
-        }
-        .foregroundColor(viewRouter.currentPage == assignedPage ? .black : .gray)
+        }.foregroundColor(viewRouter.currentPage == assignedPage ? .black : .gray)
     }
 }
 

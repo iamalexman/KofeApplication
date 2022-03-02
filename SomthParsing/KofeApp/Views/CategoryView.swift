@@ -9,7 +9,6 @@ import UIKit
 import SwiftUI
 
 struct CategoryView: View {
-    
     var placeholder : String
     @State var text : String
     
